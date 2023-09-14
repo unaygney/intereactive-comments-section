@@ -31,11 +31,7 @@ function Header() {
       <div className="ml-auto">
         {ownedByCurrentuser ? (
           <>
-            <Button className="">
-              <img src={Reply} alt="reply button" />
-              <p className="font-bold text-[#5357B6] text-base">Reply</p>
-            </Button>
-
+ 
             <Button>
               <img src={Delete} alt="Delete button" />
               <p className="font-bold text-[#ED6368] text-base">Delete</p>
