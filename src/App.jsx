@@ -1,10 +1,11 @@
-function App() {
+import Conversation from "./components/conversation";
 
+function App() {
   return (
     <>
-   <p className="text-5xl">Guney Unay</p>
+      <Conversation />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
