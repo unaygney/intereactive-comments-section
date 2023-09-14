@@ -6,7 +6,7 @@ import { CommentContextProvider } from "../comment/useComment";
 
 function Conversation() {
   return (
-    <div>
+    <div className="flex flex-col gap-6 py-16 items-center">
       {Data.comments.map((comment) => (
         <CommentContextProvider
           key={comment.id}
