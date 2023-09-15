@@ -1,35 +1,69 @@
 import React, { createContext, useContext, useState, useMemo } from "react";
+import nextId from "react-id-generator";
 
 const CommentContext = createContext();
 
 const CommentContextProvider = ({ children, data }) => {
-  const [comment , setComment] = useState(data.comment)
+  const [comment, setComment] = useState(data.comment);
   const [isReplying, setReplying] = useState(false);
-  const [isEditting , setEditting] = useState(false);
-
+  const [isEditting, setEditting] = useState(false);
+const id = nextId()
   const onEdit = () => {
-    setEditting(!isEditting)
-  }
+    setEditting(!isEditting);
+  };
 
   const onReply = () => {
     setReplying(!isReplying);
   };
 
   const onDelete = () => {
-    setComment(null)
-  }
+    setComment(null);
+  };
+ 
+  const onUpdate = (content) => {
+    setComment({
+      ...comment,
+      content,
+    });
+
+    onEdit();
+  };
+  const onNewReply = (content) => {
+    setComment({
+      ...comment,
+      replies: [
+        ...(comment.replies ?? []),
+        {
+          content,
+          createdAt: new Date().toLocaleDateString(),
+          id: id,
+          user: data.currentUser,
+          score: 0,
+          replies: [],
+          replyingTo: comment.user.username,
+        },
+      ],
+    });
+
+    onReply();
+  };
+
+
+
 
   const contextData = useMemo(
     () => ({
       comment,
-      currentUser:data.currentUser,
+      onNewReply,
+      currentUser: data.currentUser,
       isEditting,
       isReplying,
       onReply,
       onEdit,
       onDelete,
+      onUpdate,
     }),
-    [isReplying ,isEditting , comment]
+    [isReplying, isEditting, comment]
   );
   return (
     <CommentContext.Provider value={contextData}>
