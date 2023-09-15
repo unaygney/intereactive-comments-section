@@ -7,6 +7,7 @@ import Edit from "../../../assets/icon-edit.svg";
 
 function Header() {
   const {
+    onReply,
     currentUser,
     comment: {
       createdAt,
@@ -14,7 +15,12 @@ function Header() {
     },
   } = useComment();
 
+
   const ownedByCurrentuser = currentUser.username === username;
+
+  const handleReplyClick = () => {
+    onReply();
+  };
 
   return (
     <div className="flex gap-4 items-center ">
@@ -28,6 +34,8 @@ function Header() {
         </span>
       )}
       <div className="text-base text-[#67727E] ">{createdAt}</div>
+
+
       <div className="ml-auto">
         {ownedByCurrentuser ? (
           <>
@@ -43,11 +51,12 @@ function Header() {
             </Button>
           </>
         ) : (
-          <Button className="">
+          <Button onClick={onReply} >
             <img src={Reply} alt="reply button" />
             <p className="font-bold text-[#5357B6] text-base">Reply</p>
           </Button>
         )}
+
       </div>
     </div>
   );

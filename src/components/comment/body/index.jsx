@@ -5,7 +5,7 @@ function Body() {
     comment: { content ,replyingTo },
   } = useComment();
 
-  console.log(replyingTo)
+
   return (
     <p className="text-base text-[#67727E]">
       {

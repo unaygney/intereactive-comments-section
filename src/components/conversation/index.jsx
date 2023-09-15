@@ -15,8 +15,7 @@ function Conversation() {
           <Comment />
         </CommentContextProvider>
       ))}
-
-      <NewCommentEditor image={Data.currentUser.image.png} alt={Data.currentUser.username} />
+      <NewCommentEditor image={Data.currentUser.image.png} />
     </div>
   );
 }

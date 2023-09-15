@@ -2,13 +2,16 @@ import React from "react";
 import Reactions from "./reactions";
 import Header from "./header";
 import Body from "./body";
-import { useComment ,CommentContextProvider } from "./useComment";
+import { useComment, CommentContextProvider } from "./useComment";
+import NewCommentEditor from "../new-comment-editor";
 
 function Comment() {
   const {
+    isReplying,
     currentUser,
     comment: { replies },
   } = useComment();
+  console.log(isReplying);
 
   return (
     <>
@@ -26,12 +29,20 @@ function Comment() {
           {replies.map((reply) => (
             <CommentContextProvider
               key={reply.id}
-              data={{ comment:reply, currentUser }}
+              data={{ comment: reply, currentUser }}
             >
               <Comment />
             </CommentContextProvider>
           ))}
         </div>
+      )}
+
+      {isReplying && (
+        <NewCommentEditor
+          isReply
+          image={currentUser.image.png}
+          alt={currentUser.username}
+        />
       )}
     </>
   );
