@@ -7,7 +7,9 @@ import Edit from "../../../assets/icon-edit.svg";
 
 function Header() {
   const {
+    onDelete,
     onReply,
+    onEdit,
     currentUser,
     comment: {
       createdAt,
@@ -18,9 +20,7 @@ function Header() {
 
   const ownedByCurrentuser = currentUser.username === username;
 
-  const handleReplyClick = () => {
-    onReply();
-  };
+
 
   return (
     <div className="flex gap-4 items-center ">
@@ -40,12 +40,12 @@ function Header() {
         {ownedByCurrentuser ? (
           <>
  
-            <Button>
+            <Button onClick={onDelete}>
               <img src={Delete} alt="Delete button" />
               <p className="font-bold text-[#ED6368] text-base">Delete</p>
             </Button>
 
-            <Button>
+            <Button onClick={onEdit}>
               <img src={Edit} alt="edit button" />
               <p className="font-bold text-[#5357B6] text-base">Edit</p>
             </Button>

@@ -9,9 +9,13 @@ function Comment() {
   const {
     isReplying,
     currentUser,
-    comment: { replies },
+    comment,
   } = useComment();
-  console.log(isReplying);
+
+  if(!comment){
+    return null
+  }
+
 
   return (
     <>
@@ -24,9 +28,9 @@ function Comment() {
         </div>
       </div>
 
-      {replies?.length > 0 && (
+      {comment.replies?.length > 0 && (
         <div className="flex flex-col max-w-2xl gap-4 ml-[72px] relative before:absolute before:content-[''] before:w-1 before:h-full before:bg-[#E9EBF0] before:top-0 before:bottom-0 before:-left-9 before:rounded-sm ">
-          {replies.map((reply) => (
+          {comment.replies.map((reply) => (
             <CommentContextProvider
               key={reply.id}
               data={{ comment: reply, currentUser }}
