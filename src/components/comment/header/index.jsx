@@ -17,10 +17,7 @@ function Header() {
     },
   } = useComment();
 
-
   const ownedByCurrentuser = currentUser.username === username;
-
-
 
   return (
     <div className="flex gap-4 items-center ">
@@ -35,11 +32,9 @@ function Header() {
       )}
       <div className="text-base text-[#67727E] ">{createdAt}</div>
 
-
       <div className="ml-auto">
         {ownedByCurrentuser ? (
           <>
- 
             <Button onClick={onDelete}>
               <img src={Delete} alt="Delete button" />
               <p className="font-bold text-[#ED6368] text-base">Delete</p>
@@ -51,12 +46,11 @@ function Header() {
             </Button>
           </>
         ) : (
-          <Button onClick={onReply} >
+          <Button onClick={onReply}>
             <img src={Reply} alt="reply button" />
             <p className="font-bold text-[#5357B6] text-base">Reply</p>
           </Button>
         )}
-
       </div>
     </div>
   );

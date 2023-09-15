@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import Reactions from "./reactions";
 import Header from "./header";
 import Body from "./body";
 import { useComment, CommentContextProvider } from "./useComment";
 import NewCommentEditor from "../new-comment-editor";
+import Data from '../../../data.json'
+
 
 function Comment() {
   const { onNewReply, isReplying, currentUser, comment } = useComment();
@@ -12,6 +14,23 @@ function Comment() {
     return null;
   }
 
+
+
+  const [comments, setComments] = useState(Data.comments);
+
+  const handleNewComment = (newComment) => {
+
+    setComments([
+      ...comments,
+      {
+        content: newComment,
+        createdAt: new Date().toLocaleDateString(),
+        id: id,
+        user: Data.currentUser,
+        score: 0,
+      },
+    ]);
+  };
   return (
     <>
       <div className="flex items-start  gap-4 bg-white p-6  rounded-lg max-w-3xl">

@@ -1,9 +1,10 @@
 import Conversation from "./components/conversation";
+import Data from '../data.json'
 
-function App() {
+function App({comments: allComments, currentUser }) {
   return (
     <>
-      <Conversation />
+      <Conversation {...Data} />
     </>
   );
 }

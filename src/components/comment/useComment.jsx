@@ -7,19 +7,20 @@ const CommentContextProvider = ({ children, data }) => {
   const [comment, setComment] = useState(data.comment);
   const [isReplying, setReplying] = useState(false);
   const [isEditting, setEditting] = useState(false);
-const id = nextId()
+  const id = nextId();
   const onEdit = () => {
     setEditting(!isEditting);
   };
 
   const onReply = () => {
     setReplying(!isReplying);
+
   };
 
   const onDelete = () => {
     setComment(null);
   };
- 
+
   const onUpdate = (content) => {
     setComment({
       ...comment,
@@ -47,12 +48,24 @@ const id = nextId()
 
     onReply();
   };
+  const handleIncreament = () => {
+    setComment({
+      ...comment,
+      score: comment.score + 1,
+    });
+  };
 
-
-
+  const handleDecrement = () => {
+    setComment({
+      ...comment,
+      score: comment.score - 1,
+    });
+  };
 
   const contextData = useMemo(
     () => ({
+      handleIncreament,
+      handleDecrement,
       comment,
       onNewReply,
       currentUser: data.currentUser,
