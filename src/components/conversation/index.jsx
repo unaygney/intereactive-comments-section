@@ -26,7 +26,7 @@ function Conversation() {
 
 
   return (
-    <div className="flex flex-col gap-6 py-16 items-center">
+    <div className="container mx-auto flex flex-col gap-6 py-16 items-center">
       {comments.map((comment) => (
         <CommentContextProvider
           key={comment.id}

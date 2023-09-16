@@ -33,7 +33,7 @@ function Comment() {
   };
   return (
     <>
-      <div className="flex items-start  gap-4 bg-white p-6  rounded-lg max-w-3xl">
+      <div className="flex  items-start  gap-4 bg-white p-6  rounded-lg max-w-3xl">
         <Reactions />
 
         <div className="flex flex-col gap-4 w-full">
