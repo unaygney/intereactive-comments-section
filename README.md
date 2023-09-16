@@ -22,18 +22,16 @@ Users should be able to:
 - See hover states for all interactive elements on the page
 - Create, Read, Update, and Delete comments and replies
 - Upvote and downvote comments
-- **Bonus**: If you're building a purely front-end project, use `localStorage` to save the current state in the browser that persists when the browser is refreshed.
-- **Bonus**: Instead of using the `createdAt` strings from the `data.json` file, try using timestamps and dynamically track the time since the comment or reply was posted.
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Desktop](./screenshots/Desktop.png)
 
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/unaygney/intereactive-comments-section)
+- Live Site URL: [Add live site URL here](https://6505b18e90e9f3195cc200fd--magenta-panda-6172c9.netlify.app/)
 
 ## My process
 
@@ -49,7 +47,7 @@ Users should be able to:
 
 ## Author
 
-- Website - [Add your name here](https://www.guneyunay.com)
+- Website - [Guney Unay](https://www.guneyunay.com)
 - Frontend Mentor - [@unaygney](https://www.frontendmentor.io/profile/unaygney)
 
 
